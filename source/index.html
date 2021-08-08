@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!-- <link rel="preload" href="fonts/xxx.woff2" as="font" crossorigin>  Предзагрузка шрифта -->
+    <!-- <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"> Добавить фавиконку -->
+    <link rel="stylesheet" href="css/style.min.css" />
+    <title>Landing</title>
+  </head>
+  <body class="body">
+    <section class="hero">
+      <div class="bg"></div>
+      <div class="content">
+        <div class="textBox">
+          <div class="textBox__title">Sale</div>
+          <div class="textBox__text">Летняя распродажа</div>
+          <a href="#" class="textBox__link">Каталог</a>
+        </div>
+        <div class="imgBox">
+          <div class="imgBox__price">
+            от <span class="num">995</span>&nbsp;&#8381;
+          </div>
+          <img class="clothes" src="img/polo.png" alt="" />
+        </div>
+      </div>
+      <ul class="thumb">
+        <li class="active" data-text="Поло">
+          <img
+            src="img/polo.png"
+            onclick="imgSlider('img/polo.png');changeBgColor('#b31419');priceSlider('995')"
+          />
+        </li>
+        <li data-text="Рубашки">
+          <img
+            src="img/shirt.png"
+            onclick="imgSlider('img/shirt.png');changeBgColor('#212e4e');priceSlider('1 095')"
+          />
+        </li>
+        <li data-text="Толстовки">
+          <img
+            src="img/hoodie.png"
+            onclick="imgSlider('img/hoodie.png');changeBgColor('#095d44');priceSlider('1 595')"
+          />
+        </li>
+        <li data-text="Куртки">
+          <img
+            src="img/jacket.png"
+            onclick="imgSlider('img/jacket.png');changeBgColor('#3c115c');priceSlider('2 995')"
+          />
+        </li>
+        <li data-text="Брюки">
+          <img
+            src="img/pants.png"
+            onclick="imgSlider('img/pants.png');changeBgColor('#34463d');priceSlider('2 495')"
+          />
+        </li>
+        <li data-text="Шапки">
+          <img
+            src="img/hats.png"
+            onclick="imgSlider('img/hats.png');changeBgColor('#084654');priceSlider('595')"
+          />
+        </li>
+        <li data-text="Аксессуары">
+          <img
+            src="img/tie.png"
+            onclick="imgSlider('img/tie.png');changeBgColor('#9c008b');priceSlider('995')"
+          />
+        </li>
+        <li data-text="Обувь">
+          <img
+            src="img/shoes.png"
+            onclick="imgSlider('img/shoes.png');changeBgColor('#5087d8');priceSlider('4 995')"
+          />
+        </li>
+      </ul>
+    </section>
+    <!-- svg template -->
+    <!-- <svg width="" height="" role="img" aria-label="">
+    <use xlink:href="img/sprite.svg#icon-envelope"></use>
+  </svg> -->
+    <!-- <script src="js/script.js"></script> -->
+    <script>
+      // img change
+      function imgSlider(anything) {
+        document.querySelector(".clothes").src = anything;
+      }
+
+      // price change
+      function priceSlider(anything) {
+        document.querySelector(".num").textContent = anything;
+      }
+
+      // background-color change
+      function changeBgColor(color) {
+        let bg = document.querySelector(".bg");
+        bg.style.background = color;
+      }
+
+      // shadow change
+      let el = document.querySelectorAll(".thumb li");
+      for (let i = 0; i < el.length; i++) {
+        el[i].onclick = function () {
+          let c = 0;
+          while (c < el.length) {
+            el[c++].className = "check";
+          }
+          el[i].className = "check active";
+        };
+      }
+    </script>
+  </body>
+</html>
